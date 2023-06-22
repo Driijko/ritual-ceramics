@@ -1,15 +1,13 @@
 <!-- SCRIPTS ////////////////////////////////// -->
 <script>
-  import {layoutBreakpoint} from "./data/layoutBreakpointStore";
+  import LoadingPage from "./components/2-pages/LoadingPage.svelte";
   import setUp from "./scripts/setUp";
 
   setUp();
 </script>
 
 <!-- MARKUP ///////////////////////////////// -->
-<div>
-  {$layoutBreakpoint}
-</div>
+<LoadingPage />
 
 <!-- STYLES ////////////////////////////////// -->
 <style>
