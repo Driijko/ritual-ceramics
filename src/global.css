@@ -75,9 +75,6 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   font-family: inherit;
-}
-
-input[type="checkbox"], input[type="range"] {
   margin: 0;
 }
 
