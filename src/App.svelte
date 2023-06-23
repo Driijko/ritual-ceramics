@@ -1,13 +1,13 @@
 <!-- SCRIPTS ////////////////////////////////// -->
 <script>
-  import LoadingPage from "./components/2-pages/LoadingPage.svelte";
+  import SiteSettings from "./components/5-structures/SiteSettings.svelte";
   import setUp from "./scripts/setUp";
 
   setUp();
 </script>
 
 <!-- MARKUP ///////////////////////////////// -->
-<LoadingPage />
+<SiteSettings />
 
 <!-- STYLES ////////////////////////////////// -->
 <style>

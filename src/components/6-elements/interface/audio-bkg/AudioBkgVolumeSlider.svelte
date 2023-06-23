@@ -2,7 +2,7 @@
 <script>
   // IMPORTS ----------------------------
   import { audioBkgAdjustVolume, audioBkgVolume } 
-  from "../../../../scripts/audioBkgStore";
+  from "../../../../data/audioBkgStore";
 
   // PROPS ----------------------------------
   export let axis = "horizontal";
