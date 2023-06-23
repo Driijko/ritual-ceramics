@@ -6,10 +6,12 @@
   import SiteLayout from "../SiteLayout.svelte";
   import BackgroundRouter from "./BackgroundRouter.svelte";
   import ContentRouter from "./ContentRouter.svelte";
+  import AudioBkg from "../AudioBkg.svelte";
 
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
+<AudioBkg />
 {#if $currentPage === "loading"}
   <LoadingPage />
 {:else if $currentPage === "opening-prompt"}
