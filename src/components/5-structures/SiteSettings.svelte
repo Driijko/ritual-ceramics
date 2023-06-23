@@ -11,16 +11,14 @@
 
 <!-- MARKUP ///////////////////////////////////////////// -->
 <div class="site-settings">
-  <div class="site-settings-option">
-    <label for="audio-option">Audio</label>
+  <label for="audio-option">
+    Background Audio
     <AudioBkgCheckbox />
-  </div>
-  <div class="volume-adjust" class:visible={!($audioBkgPaused)}>
-    <label for="volume">
-      Adjust volume to your preference:
-    </label>
+  </label>
+  <label for="volume" class:visible={!($audioBkgPaused)} class="volume-adjust">
+    Adjust volume to your preference:
     <AudioBkgVolumeSlider />
-  </div>
+  </label>
 </div>
 
 <!-- STYLES ////////////////////////////////////////// -->

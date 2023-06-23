@@ -31,6 +31,6 @@
 
 </script>
 
-<audio controls bind:this={audioBkgElement} src={$audioBkgPath}
+<audio bind:this={audioBkgElement} src={$audioBkgPath}
   bind:paused={$audioBkgPaused} loop
 ></audio>
