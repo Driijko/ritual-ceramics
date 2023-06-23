@@ -19,13 +19,13 @@
   };
   
   // LOAD EVENT ----------------------------------
-  onMount(()=> {
-    window.addEventListener("load", handleLoad);
+  // onMount(()=> {
+  //   window.addEventListener("load", handleLoad);
     
-    return ()=> {
-      window.removeEventListener("load", handleLoad);
-    };
-  });
+  //   return ()=> {
+  //     window.removeEventListener("load", handleLoad);
+  //   };
+  // });
 </script>
 
 <!-- MARKUP /////////////////////////////////////////////////////////// -->
@@ -47,6 +47,7 @@
 
 p {
   z-index: 1;
+  font-family: "Arial", sans-serif;
 }
 
 .loading-page div {
@@ -66,23 +67,23 @@ p {
 /* PORTRAIT -------------------------------- */
 @media screen and (orientation: portrait) {
   p {
-    font-size: calc(var(--pw)/15);
+    font-size: calc(var(--cw)/15);
   }
   .loading-page div {
     width: 40%;
     height: 60%;
-    border-width: calc(var(--pw)/50);
+    border-width: calc(var(--cw)/50);
   }
 }
 /* LANDSCAPE -------------------------------- */
 @media screen and (orientation: landscape) {
   p {
-    font-size: calc(var(--lw)/30);
+    font-size: calc(var(--cw)/30);
   }
   .loading-page div {
     width: 50%;
     height: 40%;
-    border-width: calc(var(--lw)/200);
+    border-width: calc(var(--cw)/200);
   }
 }
 </style>
