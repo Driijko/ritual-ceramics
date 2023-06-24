@@ -15,6 +15,10 @@ export function audioBkgTogglePausePlay() {
   audioBkgPaused.set(!(get(audioBkgPaused)));
 };
 
+export function audioBkgLoad(path) {
+  audioBkgPath.set(path);
+};
+
 export function audioBkgLoadPlay(path) {
   audioBkgPath.set(path);
   audioBkgPlayAfterLoad.set(true);

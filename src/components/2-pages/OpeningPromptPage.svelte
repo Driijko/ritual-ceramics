@@ -5,6 +5,7 @@
   import { onMount } from "svelte";
   import { gsap } from "gsap";
   import { setPageExit, newPage } from "../../data/currentPageStore";
+  import { audioBkgLoad, audioBkgLoadPlay, audioBkgPaused } from "../../data/audioBkgStore";
 
   // ANIMATION --------------------------------------------------
   function pageEntrance() {
@@ -46,7 +47,13 @@
   function handleClick(e) {
     e.preventDefault();
     newPage("splash");
-  }
+    if ($audioBkgPaused) {
+      audioBkgLoad("./audio/background-audio.mp3");
+    } else {
+      audioBkgLoadPlay("./audio/background-audio.mp3");
+    };
+  };
+
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->
@@ -100,7 +107,6 @@ path {
 }
 .opening-prompt-content {
   font-size: 21px;
-  max-width: 900px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -217,7 +223,7 @@ a {
     transition-duration: 0.5s;
     outline-width: 0;
     outline-style: solid;
-    outline-color: hsla(var(--hue1), 100%, 50%, 0.8);
+    outline-color: hsla(var(--hue2), 100%, 3%, 0.8);
   }
   a:hover, a:focus-visible {
     transform: scale(1.3);
