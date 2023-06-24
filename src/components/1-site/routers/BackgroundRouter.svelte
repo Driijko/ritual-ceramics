@@ -1,6 +1,6 @@
 <!-- SCRIPTS /////////////////////////////////////// -->
 <script>
-  import { currentPage } from "../../../data/dynamic/currentPageStore";
+  import { currentPage } from "../../../data/currentPageStore";
 </script>
 
 <!-- MARKUP //////////////////////////////////////// -->

@@ -2,7 +2,7 @@
 <script>
   // IMPORTS ------------------------------------------------
   import { viewportOrientation }
-  from "../../../data/dynamic/viewportOrientationStore";
+  from "../../../data/viewportOrientationStore";
 
   // PROPS -------------------------------------------------
   export let src = {
@@ -25,7 +25,8 @@ div {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
+  background-size: 150%;
+  background-position: 0% 0%;
+  animation: backgroundShift 30s linear infinite;
 }
 </style>

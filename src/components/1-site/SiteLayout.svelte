@@ -2,49 +2,44 @@
 <script>
   // IMPORTS ------------------------------------------
   import { layoutBreakpoint } 
-  from "../../data/dynamic/layoutBreakpointStore";
-  import { siteMenuModal } from "../../data/dynamic/modalsStore";
-  import InterfaceArea from "./interface/InterfaceArea.svelte";
-  import SiteToolbar from "./interface/SiteToolbar.svelte";
-  import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
-  import SiteMenu from "./interface/site-menu/SiteMenu.svelte";
-  import SnapScroll from "../4-layouts/SnapScroll.svelte";
+  from "../../data/layoutBreakpointStore";
+  import { siteMenuModal } from "../../data/modalsStore";
+  // import InterfaceArea from "./interface/InterfaceArea.svelte";
+  // import SiteToolbar from "./interface/SiteToolbar.svelte";
+  // import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
+  // import SiteMenu from "./interface/site-menu/SiteMenu.svelte";
 
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-<div id="this" class="vp" 
+<div class="vp site-layout" 
   class:center={$layoutBreakpoint !== "large-desktop"}
 >
 
-  <slot name="background" />
+  <!-- <slot name="background" /> -->
 
   {#if $layoutBreakpoint !== "large-desktop"}
 
-    <div class="content-container" inert={$siteMenuModal}>
-      <SnapScroll axis="vertical" >
-        <slot name="content" />
-      </SnapScroll>
+    <div class="vp" inert={$siteMenuModal}>
+      <slot name="content" />
     </div>
 
-    <div class="interface-vp">
+    <!-- <div class="interface-vp">
       <div class="interface-container">
         <SiteToolbar />
         <SiteMenuModal>
           <SiteMenu />
         </SiteMenuModal>
       </div>
-    </div>
+    </div> -->
 
   {:else if $layoutBreakpoint === "large-desktop"}
 
-    <InterfaceArea />
+    <!-- <InterfaceArea /> -->
 
     <div class="content-area center">
       <div class="content-container">
-        <SnapScroll axis="vertical" >
-          <slot name="content" />
-        </SnapScroll>
+        <slot name="content" />
       </div>
 
     </div>
@@ -54,10 +49,10 @@
 
 <!-- STYLES //////////////////////////////////////////// -->
 <style>
-#this {
+.site-layout {
   display: flex;
 }
-#this :global(.interface-area) {
+.site-layout :global(.interface-area) {
   flex: 2;
 }
 .content-area {
