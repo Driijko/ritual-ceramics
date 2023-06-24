@@ -11,4 +11,4 @@ export const layout = {
   interfaceAreaPadding: 40
 }
 
-export const startingPageName = "splash";
+export const startingPageName = "loading";

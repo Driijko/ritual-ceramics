@@ -5,13 +5,13 @@
   import AudioBkg from "./components/1-site/AudioBkg.svelte";
   import OpeningPromptPage from "./components/2-pages/OpeningPromptPage.svelte";
   import {audioBkgLoadPlay} from "./data/audioBkgStore";
+  import SiteRouter from "./components/1-site/routers/SiteRouter.svelte";
 
   setUp();
 </script>
 
 <!-- MARKUP ///////////////////////////////// -->
-<AudioBkg />
-<OpeningPromptPage />
+<SiteRouter />
 
 
 

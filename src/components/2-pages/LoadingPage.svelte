@@ -19,13 +19,13 @@
   };
   
   // LOAD EVENT ----------------------------------
-  // onMount(()=> {
-  //   window.addEventListener("load", handleLoad);
+  onMount(()=> {
+    window.addEventListener("load", handleLoad);
     
-  //   return ()=> {
-  //     window.removeEventListener("load", handleLoad);
-  //   };
-  // });
+    return ()=> {
+      window.removeEventListener("load", handleLoad);
+    };
+  });
 </script>
 
 <!-- MARKUP /////////////////////////////////////////////////////////// -->
