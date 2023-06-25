@@ -125,6 +125,15 @@ a, button, label, input {
   cursor: pointer;
 }
 
+/* SVGS INHERIT COLOR /////////////////////////////////////// */
+a path, button path {
+  fill: currentColor;
+}
+
+a line, button line {
+  stroke: currentColor;
+}
+
 /* LAYOUT HELPERS ////////////////////////////////////////// */
 .center {
   display: flex;

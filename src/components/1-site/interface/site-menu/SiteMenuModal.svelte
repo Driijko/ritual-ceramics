@@ -1,7 +1,7 @@
 <!-- SCRIPTS /////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------
-  import { siteMenuModal } from "../../../../data/dynamic/modalsStore";
+  import { siteMenuModal } from "../../../../data/modalsStore";
   import shift from "../../../../scripts/transitions/shift";
   
 </script>
@@ -21,5 +21,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: blue;
 }
 </style>

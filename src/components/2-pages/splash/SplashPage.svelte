@@ -1,18 +1,15 @@
 <!-- SCRIPTS ///////////////////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------------
-  import SplashContent from "./SplashContent.svelte";
+  import SplashPortrait from "./SplashPortrait.svelte";
+  import SplashLandscape from "./SplashLandscape.svelte";
+  import { viewportOrientation } 
+  from "../../../data/viewportOrientationStore";
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////////// -->
-<div id="page2">
-  <SplashContent />
-</div>
-
-<!-- STYLES ////////////////////////////////////////////// -->
-<style>
-#page2 {
-  width: 100%;
-  height: 100%;
-}
-</style>
+{#if $viewportOrientation === "portrait"}
+  <SplashPortrait />
+{:else if $viewportOrientation === "landscape"}
+  <SplashLandscape />
+{/if}

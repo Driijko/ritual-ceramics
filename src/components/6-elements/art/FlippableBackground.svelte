@@ -28,5 +28,6 @@ div {
   background-size: 150%;
   background-position: 0% 0%;
   animation: backgroundShift 30s linear infinite;
+  z-index: -1;
 }
 </style>

@@ -1,15 +1,16 @@
 <!-- SCRIPTS /////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------------
-  import { layoutBreakpoint } from "../../../data/dynamic/layoutBreakpointStore";
+  import { layoutBreakpoint } from "../../../data/layoutBreakpointStore";
   import SiteMenuModalOpenerButton 
   from "../../6-elements/interface/modal/SiteMenuModalOpenerButton.svelte";
-  import { siteMenuModal } from "../../../data/dynamic/modalsStore";
+  import { siteMenuModal } from "../../../data/modalsStore";
+  import { currentPage } from "../../../data/currentPageStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-{#if $layoutBreakpoint !== "large-desktop"}
-  <div class="site-toolbar" class:mobile={$layoutBreakpoint === "mobile"}
+{#if $currentPage !== "splash"}
+  <div class="site-toolbar" class:mobile={$layoutBreakpoint !== "small-desktop"}
     class:desktop={$layoutBreakpoint === "small-desktop"}
     inert={$siteMenuModal}
   >

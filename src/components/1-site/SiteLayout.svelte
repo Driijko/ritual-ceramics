@@ -5,9 +5,9 @@
   from "../../data/layoutBreakpointStore";
   import { siteMenuModal } from "../../data/modalsStore";
   // import InterfaceArea from "./interface/InterfaceArea.svelte";
-  // import SiteToolbar from "./interface/SiteToolbar.svelte";
-  // import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
-  // import SiteMenu from "./interface/site-menu/SiteMenu.svelte";
+  import SiteToolbar from "./interface/SiteToolbar.svelte";
+  import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
+  import SiteMenu from "./interface/site-menu/SiteMenu.svelte";
 
 </script>
 
@@ -24,14 +24,18 @@
       <slot name="content" />
     </div>
 
-    <!-- <div class="interface-vp">
-      <div class="interface-container">
+    <div class="interface-vp">
+      <SiteToolbar />
+      <SiteMenuModal >
+        <SiteMenu />
+      </SiteMenuModal>
+      <!-- <div class="interface-container">
         <SiteToolbar />
         <SiteMenuModal>
           <SiteMenu />
         </SiteMenuModal>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
 
   {:else if $layoutBreakpoint === "large-desktop"}
 

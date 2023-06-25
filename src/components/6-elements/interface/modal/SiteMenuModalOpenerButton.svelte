@@ -1,7 +1,7 @@
 <!-- SCRIPTS ////////////////////////////////////// -->
 <script>
   // IMPORTS ----------------------------------------------------
-  import { modals } from "../../../../data/dynamic/modalsStore";
+  import { modals } from "../../../../data/modalsStore";
   import MenuIcon from "../../icons/interface/MenuIcon.svelte";
 
 </script>

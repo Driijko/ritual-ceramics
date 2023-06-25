@@ -1,30 +1,28 @@
 <!-- SCRIPTS /////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------
-  import { layoutBreakpoint } from "../../../../data/dynamic/layoutBreakpointStore";
-  import Navigation from "./navigation/Navigation.svelte";
-  import SiteMenuModalCloserButton 
-  from "../../../6-elements/interface/modal/SiteMenuModalCloserButton.svelte";
+  import { layoutBreakpoint } from "../../../../data/layoutBreakpointStore";
+  import SiteMenuTabs from "./SiteMenuTabs.svelte";
   import SiteMenuBreadcrumbs from "./SiteMenuBreadcrumbs.svelte";
+  import SiteMenuButtons from "./SiteMenuButtons.svelte";
   
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-<div class="site-menu" class:portrait={$layoutBreakpoint !== "small-desktop"}
+<div class="site-menu" 
+  class:portrait={$layoutBreakpoint !== "small-desktop"}
   class:landscape={$layoutBreakpoint === "small-desktop"}
 >
   <header>
-    <h1>FLOW</h1>
-    <h2>A front-end web-development framework</h2>
+    <h1>Ritual Ceramics</h1>
+    <h2>minimalist forms, expressive surfaces</h2>
   </header>
 
   <SiteMenuBreadcrumbs />
 
-  <Navigation />
+  <SiteMenuTabs />
 
-  {#if $layoutBreakpoint !== "large-desktop"}
-    <SiteMenuModalCloserButton />
-  {/if}
+  <SiteMenuButtons />
 </div>
 
 
@@ -45,23 +43,47 @@
 header {
   height: 10%;
   display: flex;
-  background-color: grey;
+  background-color: hsl(var(--hue1), 100%, 70%);
   padding-left: 1%;
 }
 .site-menu :global(.site-menu-breadcrumbs) {
-  background-color: hsl(0, 0%, 20%);
+  background-color: hsl(var(--hue1), 100%, 50%);
   color: white;
   padding-left: 1%;
 }
-.site-menu :global(nav) {
+.site-menu :global(.site-menu-tab-container) {
   width: 100%;
+  height: 78.8%;
   background-color: green;
 }
-.site-menu :global(.site-menu-modal-closer-button) {
-  background-color: black;
+.site-menu :global(.site-menu-tab) {
+  width: 100%;
+  height: 100%;
 }
-.site-menu :global(.site-menu-modal-closer-button line) {
-  stroke: white;
+.site-menu :global(.site-menu-buttons) {
+  height: 8%;
+  background-color: lightgrey;
+  display: flex;
+}
+.site-menu :global(.tab-buttons) {
+  display: flex;
+  background-color: lightblue;
+  width: 88%;
+  gap: 4%;
+}
+.site-menu :global(.tab-buttons li) {
+  height: 100%;
+  width: 20%;
+}
+.site-menu :global(.tab-buttons button) {
+  border: 1px solid blue;
+  width: 100%;
+  height: 90%;
+  border-radius: 0 0 50% 50%;  
+  padding-bottom: 5%;
+}
+.site-menu :global(.tab-buttons svg) {
+  width: 31%;
 }
 
 /* PORTRAIT ---------------------------------------- */
@@ -74,34 +96,20 @@ header {
   font-size: calc(var(--iw)/14);
 }
 .site-menu.portrait h2 {
-  font-size: calc(var(--iw)/24);
+  font-size: calc(var(--iw)/19);
 }
 .site-menu.portrait :global(.site-menu-breadcrumbs) {
   height: 3.2%;
   font-size: calc(var(--iw)/19.3);
 }
-.site-menu.portrait :global(.site-menu-breadcrumbs li) {
-  padding-right: calc(var(--iw) * 0.02);
-}
-.site-menu.portrait :global(nav) {
-  height: 78.8%;
-}
-.site-menu.portrait :global(.primary-nav) {
-  padding-left: calc(var(--iw) * 0.03);
-  font-size: calc(var(--iw) * 0.06);
-  line-height: 1.5;
-}
-.site-menu.portrait :global(.primary-nav li) {
-  margin-top: calc(var(--ih) * 0.02);
-}
 .site-menu.portrait :global(.site-menu-modal-closer-button) {
-  width: 100%;
-  height: 8%;
+  border: 1px solid blue;
+  width: 12%;
   display: flex;
   justify-content: center;
-  padding: calc(var(--ih) * 0.015);
+  align-items: center;
+  padding: 1.5%;
 }
-
 /* LANDSCAPE --------------------------------------- */
 .site-menu.landscape header {
   align-items: center;
@@ -122,25 +130,6 @@ header {
 }
 .site-menu.landscape :global(.site-menu-breadcrumbs li) {
   padding-right: calc(var(--iw) * 0.005);
-}
-.site-menu.landscape :global(nav) {
-  height: 87%;
-  display: flex;
-}
-.site-menu.landscape :global(.primary-nav) {
-  padding-left: calc(var(--iw) * 0.02);
-  width: 32%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: calc(var(--ih) * 0.05);
-  font-size: calc(var(--iw) * 0.016);
-}
-.site-menu.landscape :global(.preview-section) {
-  background-color: pink;
-  width: 68%;
-  height: 100%;
 }
 .site-menu.landscape :global(.site-menu-modal-closer-button) {
   position: absolute;
