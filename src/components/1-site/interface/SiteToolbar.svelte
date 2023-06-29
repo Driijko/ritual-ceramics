@@ -54,7 +54,7 @@ a :global(svg) {
   top: 92%;
   justify-content: center;
   align-items: center;
-  gap: calc(var(--iw)/50);
+  gap: calc(var(--iw)/30);
 }
 .site-toolbar.mobile :global(button) {
   width: 15%;

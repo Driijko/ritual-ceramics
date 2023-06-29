@@ -194,6 +194,8 @@
 <style>
 div {
   scrollbar-width: none;  
+  width: 100%;
+  height: 100%;
 }
 div::-webkit-scrollbar {
   display: none;

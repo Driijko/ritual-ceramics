@@ -51,13 +51,9 @@ header {
   background-color: hsl(var(--hue1), 100%, 70%);
   padding-left: 1%;
 }
-h1 {
-  font-family: "Sail"
-}
 .site-menu :global(.site-menu-breadcrumbs) {
   background-color: hsl(var(--hue1), 100%, 50%);
   color: white;
-  padding-left: 1%;
   display: flex;
   align-items: center;
 }
@@ -111,12 +107,12 @@ h1 {
 }
 .site-menu.portrait h2 {
   font-size: calc(var(--iw)/19);
-  padding-left: calc(var(--iw)/50);
+  padding-left: calc(var(--iw)/150);
 }
 .site-menu.portrait :global(.site-menu-breadcrumbs) {
   height: 3.5%;
   font-size: calc(var(--iw)/19.3);
-  padding-left: calc(var(--iw)/27);
+  padding-left: calc(var(--iw)/40);
   padding-top: calc(var(--iw)/150);
 }
 .site-menu.portrait :global(.site-menu-tab) {
@@ -171,7 +167,7 @@ h1 {
   height: 4.5%;
   font-size: calc(var(--iw)/50);
   letter-spacing: calc(var(--iw)/1000);
-  padding-left: calc(var(--iw)/55);
+  padding-left: calc(var(--iw)/80);
   padding-top: calc(var(--iw)/1000);
 }
 .site-menu.landscape :global(.site-menu-tab) {
