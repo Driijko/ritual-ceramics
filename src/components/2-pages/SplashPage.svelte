@@ -6,11 +6,19 @@
   import { layoutBreakpoint } from "../../data/layoutBreakpointStore";
   import { viewportOrientation } 
   from "../../data/viewportOrientationStore";
+  import { setPageExit } from "../../data/currentPageStore";
+
+  // PAGE EXIT -----------------------------------------
+  let exit = false;
+
+  setPageExit(()=> {exit = true}, 2000);
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
 <h1 class:portrait={$viewportOrientation === "portrait"}
   class:landscape={$viewportOrientation === "landscape"}
+  class:large-desktop={$layoutBreakpoint === "large-desktop"}
+  class:exit={exit === true}
 >
   <img src={$viewportOrientation === "portrait" ? 
       "./images/pic2.png":
@@ -34,9 +42,14 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 2s 3s ease-out forwards;
-  background-color: hsl(var(--hue2), 100%, 50%, 0.3);
   opacity: 0;
+  animation: fadeIn 2s 3s ease-out forwards;
+}
+h1.exit {
+  animation: fadeOut 2s ease-out forwards;
+}
+h1.large-desktop {
+  background-color: hsl(var(--hue2), 100%, 50%, 0.3);
 }
 img {
   width: 100%;

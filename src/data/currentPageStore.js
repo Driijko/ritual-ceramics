@@ -3,6 +3,7 @@ import { startingPageName } from "./staticData";
 
 // STATE ----------------------------------------
 export const currentPage = writable(startingPageName);
+export const exiting = writable(false);
 const currentPageExit = {
   exitMethod: ()=> null,
   duration: 0,
@@ -11,8 +12,10 @@ const currentPageExit = {
 // FUNCTIONS -----------------------------------
 export function newPage(pageName) {
   currentPageExit.exitMethod();
+  exiting.set(true);
   const timerId = setTimeout(()=> {
     currentPage.set(pageName);
+    exiting.set(false);
     clearTimeout(timerId);
   },currentPageExit.duration);
 };

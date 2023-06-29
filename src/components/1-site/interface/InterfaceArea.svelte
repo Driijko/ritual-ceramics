@@ -5,12 +5,10 @@
   import InterfaceAreaButton 
   from "../../6-elements/interface/modal/InterfaceAreaButton.svelte";
   import SiteMenu from "./site-menu/SiteMenu.svelte";
+  import SiteToolbar from "./SiteToolbar.svelte";
 
   // EVENTS ---------------------------------------------
-  // const timerId = setTimeout(()=> {
-  //   modals.open("siteMenu");
-  //   clearTimeout(timerId);
-  // }, 6000);
+
   modals.open("siteMenu");
 
 
@@ -25,6 +23,9 @@
     <div class="interface-container">
       <SiteMenu />
     </div>
+
+    <SiteToolbar />
+
   </div>
 </div>
 

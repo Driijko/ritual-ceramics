@@ -6,15 +6,30 @@
   from "../../6-elements/interface/modal/SiteMenuModalOpenerButton.svelte";
   import { siteMenuModal } from "../../../data/modalsStore";
   import { currentPage } from "../../../data/currentPageStore";
+  import InstagramIcon from "../../6-elements/icons/InstagramIcon.svelte";
+  import shift from "../../../scripts/transitions/shift";
+  import { linear } from "svelte/easing";
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
 {#if $currentPage !== "splash"}
-  <div class="site-toolbar" class:mobile={$layoutBreakpoint !== "small-desktop"}
+  <div class="site-toolbar" 
+  in:shift="{{
+    y: $layoutBreakpoint !== "small-desktop" ? 
+      window.innerHeight * 0.2 : -window.innerWidth * 0.2, 
+    duration: 1000, 
+    easing: linear,
+  }}"
+    class:mobile={$layoutBreakpoint !== "small-desktop"}
     class:desktop={$layoutBreakpoint === "small-desktop"}
-    inert={$siteMenuModal}
+    inert={$siteMenuModal && ($layoutBreakpoint !== "large-desktop")}
   >
-    <SiteMenuModalOpenerButton />
+    <a href="https://instagram.com/ktalselbee?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="center">
+      <InstagramIcon />
+    </a>
+    {#if $layoutBreakpoint !== "large-desktop"}
+      <SiteMenuModalOpenerButton />
+    {/if}
   </div>
 {/if}
 
@@ -25,8 +40,11 @@
   display: flex;
   pointer-events: initial;
 }
-.site-toolbar :global(line) {
-  stroke: white;
+.site-toolbar {
+  color: white;
+}
+a :global(svg) {
+  height: 100%;
 }
 /* MOBILE ----------------------------- */
 .site-toolbar.mobile {
@@ -36,21 +54,33 @@
   top: 92%;
   justify-content: center;
   align-items: center;
+  gap: calc(var(--iw)/50);
 }
 .site-toolbar.mobile :global(button) {
   width: 15%;
   height: 60%;
 }
+.site-toolbar.mobile a {
+  width: 15%;
+  height: 70%;
+}
 /* DESKTOP --------------------------- */
 .site-toolbar.desktop {
   top: 0%;
   right: 0%;
+  gap: calc(var(--cw)/100);
 }
-.site-toolbar.desktop :global(button) {
+.site-toolbar.desktop :global(button),
+.site-toolbar.desktop a {
   background-color: black;
   width: calc(var(--iw) * 0.05);
   height: calc(var(--iw) * 0.05);
+}
+.site-toolbar.desktop :global(button) {
   padding: calc(var(--iw) * 0.012);
+}
+.site-toolbar.desktop a {
+  padding: calc(var(--iw) * 0.008);
 }
 /* HOVER/FOCUS TRANSITIONS ----------------------------- */
 @media (hover:hover) {
@@ -60,7 +90,8 @@
     transition-timing-function: ease-out;
   }
   .site-toolbar :global(button:hover svg),
-  .site-toolbar :global(button:focus-visible svg) {
+  .site-toolbar :global(button:focus-visible svg),
+  a:hover :global(svg), a:focus-visible :global(svg) {
     transform: scale(1.3);
   }
   .site-toolbar :global(button:focus-visible) {
