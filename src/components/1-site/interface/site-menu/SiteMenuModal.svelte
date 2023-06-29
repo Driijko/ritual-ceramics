@@ -21,6 +21,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: blue;
+  background-color: hsl(0, 0%, 70%);
 }
 </style>

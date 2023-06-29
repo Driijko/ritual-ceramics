@@ -1,42 +1,61 @@
-<script>
-  import MenuIcon from "./components/6-elements/icons/interface/MenuIcon.svelte";
-</script>
-
-<svg viewBox="0 0 1280 400">
+<svg viewBox="0 0 2560 720">
   <defs>
-    <filter id="filter1" x="0" y="0" width="1280" height="400">
-      <feImage xlink:href="./backgrounds/back1-h.jpg" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="BG"></feImage>
+    <filter id="filter1" x="0" y="0" width="2560" height="720">
+      <feImage xlink:href="./backgrounds/pic1.png" x="0" y="-100" width="100%" height="200%" preserveAspectRatio="none" result="BG"></feImage>
       <feBlend in="BG" in2="SourceGraphic" mode="multiply" result="BLENDED_TEXT"></feBlend>
     </filter>
   </defs>
   <g filter="url(#filter1)">
-    <rect x="0" y="0" width="1280" height="400" fill="hsl(180, 100%, 7%)" />
-    <text x="10" y="200">Ritual Ceramics</text>
-    <text x="22" y="270">minimalist forms, expressive surfaces</text>
-    <line x1="1100" y1="170" x2="1200" y2="170" />
-    <line x1="1100" y1="210" x2="1200" y2="210"  />
-    <line x1="1100" y1="250" x2="1200" y2="250"  />
+    <rect x="0" y="0" width="2560" height="720" fill="hsl(180, 100%, 100%)" />
+    <text x="50" y="340">Ritual Ceramics</text>
+    <text x="90" y="410">minimalist forms, expressive surfaces</text>
   </g>
 </svg>
+<!-- <svg viewBox="0 0 1024 683">
+  <defs>
+    <filter id="filter1" x="0" y="0" width="1024" height="683">
+      <feImage xlink:href="./backgrounds/pic1.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="BG"></feImage>
+      <feBlend in="BG" in2="SourceGraphic" mode="multiply" result="BLENDED_TEXT"></feBlend>
+    </filter>
+  </defs>
+  <g filter="url(#filter1)">
+    <rect x="0" y="0" width="1024" height="683" fill="hsl(180, 100%, 100%)" />
+    <text x="50" y="150">Ritual</text>
+    <text x="50" y="280">Ceramics</text>
+
+    <text x="420" y="500">minimalist forms,</text>
+    <text x="350" y="590">expressive surfaces</text>
+  </g>
+</svg> -->
 
 <style>
-svg {
-  width: 1280px;
-  height: 400px;
+/* svg {
+  width: 1024px;
+  height: 683px;
 }
 text {
-  font-family: "Josefin Sans", sans-serif;
-  fill: hsl(180, 100%, 100%);
+  fill: hsl(var(--hue2), 100%, 10%);
+}
+g text:nth-of-type(1), g text:nth-of-type(2) {
+  font-family: "Sail", sans-serif;
+  font-size: 130px;
+}
+g text:nth-of-type(3), g text:nth-of-type(4) {
+  font-size: 80px;
+} */
+svg {
+  width: 2560px;
+  height: 720px;
+}
+text {
+  fill: hsl(var(--hue2), 100%, 10%);
 }
 g text:nth-of-type(1) {
+  font-family: "Sail", sans-serif;
   font-size: 130px;
 }
 g text:nth-of-type(2) {
-  font-size: 45px;
-}
-line {
-  stroke: white;
-  stroke-width: 20;
-  stroke-linecap: round;
+  font-size: 50px;
+  font-weight: 400;
 }
 </style>

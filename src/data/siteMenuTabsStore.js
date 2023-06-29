@@ -1,8 +1,8 @@
 import { writable, get } from "svelte/store";
 
 // STATE ------------------------------------------
-export const currentTab = writable("shopping-cart");
-export const prevTab = writable("shopping-cart");
+export const currentTab = writable("navigation");
+export const prevTab = writable("");
 
 // MAP -------------------------------------------
 const tabPositionMap = {

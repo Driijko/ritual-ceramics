@@ -1,7 +1,7 @@
 <!-- SCRIPTS ////////////////////////////////// -->
 <script>
   import { currentPage } from "../../../data/currentPageStore";
-  import SplashPage from "../../2-pages/splash/SplashPage.svelte";
+  import SplashPage from "../../2-pages/SplashPage.svelte";
 
 </script>
 

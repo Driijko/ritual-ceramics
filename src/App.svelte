@@ -8,6 +8,7 @@
   import SiteRouter from "./components/1-site/routers/SiteRouter.svelte";
   import Test from "./Test.svelte";
   import { currentTab, prevTab, getTabPosition, newTab } from "./data/siteMenuTabsStore";
+  import Background from "./Background.svelte";
 
   setUp();
 </script>
@@ -15,22 +16,7 @@
 <!-- MARKUP ///////////////////////////////// -->
 <SiteRouter />
 <!-- <Test /> -->
-<!-- <p>
-  {$currentTab}
-</p>
-<p>
-  {$prevTab}
-</p>
-<p>
-  current tab position: {getTabPosition($currentTab)}
-</p>
-<p>
-  prev tab position: {getTabPosition($prevTab)}
-</p>
-<button on:click={()=> newTab("navigation")} >nav</button>
-<button on:click={()=> newTab("shopping-cart")} >shop</button>
-<button on:click={()=> newTab("background-audio")} >audio</button>
-<button on:click={()=> newTab("web-design")} >web-design</button> -->
+<!-- <Background /> -->
 
 <!-- STYLES ////////////////////////////////// -->
 <style>

@@ -19,7 +19,7 @@
   <OpeningPromptPage />
 {:else}
   <SiteLayout>
-    <!-- <BackgroundRouter slot="background" /> -->
+    <BackgroundRouter slot="background" />
     <ContentRouter slot="content" />
   </SiteLayout>
 {/if}

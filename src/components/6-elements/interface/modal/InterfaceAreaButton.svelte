@@ -3,7 +3,7 @@
   // IMPORTS -----------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import { siteMenuModal, modals } from "../../../../data/dynamic/modalsStore";
+  import { siteMenuModal, modals } from "../../../../data/modalsStore";
   import RightArrowIcon from "../../icons/arrows/RightArrowIcon.svelte";
 
   // ANIMATION -------------------------------------
@@ -39,6 +39,7 @@
 
 <!-- MARKUP ///////////////////////////////////////// -->
 <button class="interface-area-button" type="button"
+  class:open={$siteMenuModal}
   on:click={()=> modals.toggle("siteMenu")}
 >
   <RightArrowIcon />

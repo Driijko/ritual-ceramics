@@ -25,7 +25,7 @@ div {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: 150%;
+  background-size: 150% 150%;
   background-position: 0% 0%;
   animation: backgroundShift 30s linear infinite;
   z-index: -1;

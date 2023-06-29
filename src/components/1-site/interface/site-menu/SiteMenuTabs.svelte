@@ -2,10 +2,11 @@
 <script>
   // IMPORTS -----------------------------------------
   import SiteMenuTabTransition from "./SiteMenuTabTransition.svelte";
-  import Navigation from "./navigation/Navigation.svelte";
+  import Navigation from "./Navigation.svelte";
   import { currentTab } from "../../../../data/siteMenuTabsStore";
   import SiteSettings from "../../../5-structures/SiteSettings.svelte";
   import ShoppingCart from "./ShoppingCart.svelte";
+  import WebDesign from "./WebDesign.svelte";
   
 </script>
 
@@ -22,6 +23,10 @@
   {:else if $currentTab === "background-audio"}
     <SiteMenuTabTransition>
       <SiteSettings />
+    </SiteMenuTabTransition>
+  {:else if $currentTab === "web-design"}
+    <SiteMenuTabTransition>
+      <WebDesign />
     </SiteMenuTabTransition>
   {/if}
 </div>
