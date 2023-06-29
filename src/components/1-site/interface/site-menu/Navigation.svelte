@@ -4,6 +4,15 @@
   import { layoutBreakpoint } 
   from "../../../../data/layoutBreakpointStore";
   import { newPage } from "../../../../data/currentPageStore";
+  import { modals } from "../../../../data/modalsStore";
+
+  // EVENT HANDLERS --------------------------------------
+  function handleClick(pageName) {
+    newPage(pageName);
+    if ($layoutBreakpoint !== "large-desktop") {
+      modals.close("siteMenu");
+    }
+  }
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
@@ -13,28 +22,28 @@
   <div class="background"></div>
   <li>
     <a href="./introduction" 
-      on:click|preventDefault={()=> newPage("introduction")}
+      on:click|preventDefault={()=> handleClick("introduction")}
     >
       Introduction
     </a>
   </li>
   <li>
     <a href="./shop" 
-      on:click|preventDefault={()=> newPage("shop")}
+      on:click|preventDefault={()=> handleClick("shop")}
     >
       Shop
     </a>
   </li>
   <li>
     <a href="./about" 
-      on:click|preventDefault={()=> newPage("about")}
+      on:click|preventDefault={()=> handleClick("about")}
     >
       About
     </a>
   </li>
   <li>
     <a href="./contact" 
-      on:click|preventDefault={()=> newPage("contact")}
+      on:click|preventDefault={()=> handleClick("contact")}
     >
       Contact
     </a>

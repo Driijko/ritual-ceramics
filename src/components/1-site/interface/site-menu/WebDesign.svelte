@@ -3,6 +3,7 @@
   // IMPORTS ------------------------------------
 import { layoutBreakpoint } from "../../../../data/layoutBreakpointStore";
 import { newPage } from "../../../../data/currentPageStore";
+import { modals } from "../../../../data/modalsStore";
 </script>
 
 <div class="web-design-tab">
@@ -17,7 +18,12 @@ import { newPage } from "../../../../data/currentPageStore";
       To see more of their work, check out their <a href="https://driijko.github.io/dreeko-dev" target="_blank" rel="noopener noreferrer">portfolio site</a>.
     </p>
     <p>
-      For more details on the technology and design of this site, <a href="web-design" on:click|preventDefault={()=> newPage("web-design")}>click here</a>.
+      For more details on the technology and design of this site, <a href="web-design" on:click|preventDefault={()=> {
+        newPage("web-design");
+        if ($layoutBreakpoint !== "large-desktop") {
+          modals.close("siteMenu");
+        }
+      }}>click here</a>.
     </p>
   </div>
 </div>
