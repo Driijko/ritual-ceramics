@@ -33,6 +33,7 @@
   width: 100%;
   height: 100%;
   animation: fadeIn 3s ease-out forwards;
+  z-index: -1;
 }
 .exiting {
   animation: fadeOut 2s ease-out forwards;

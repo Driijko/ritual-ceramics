@@ -193,8 +193,6 @@
 <!-- STYLES /////////////////////////////////// -->
 <style>
 div {
-  width: 100%;
-  height: 100%;
   scrollbar-width: none;  
 }
 div::-webkit-scrollbar {
