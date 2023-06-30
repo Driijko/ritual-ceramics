@@ -5,6 +5,7 @@
   import { viewportOrientation } from "../../data/viewportOrientationStore";
   import DownAngle from "../6-elements/icons/arrows/DownAngle.svelte";
   import EnvelopeIcon from "../6-elements/icons/interface/EnvelopeIcon.svelte";
+  import PageLink from "../6-elements/interface/PageLink.svelte";
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
@@ -47,7 +48,7 @@
       <p>
         Browse the online shop for a variety of mugs, vases, pour-overs, tea pots, bowls and candle holders.
       </p>
-      <a href="shop" class="center">Shop Now</a>
+      <PageLink pageName="shop">Shop Now</PageLink>
       <div class="center">
         <img src="./images/pic9.jpg" alt="Stack of cups." />
         <img src="./images/pic8.jpg" alt="Collection of bowls." />
@@ -125,7 +126,10 @@ section img {
   border-color: hsl(var(--hue2), 100%, 10%);
   border-style: solid;
 }
-section a {
+section :global(a) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: hsl(var(--hue2), 100%, 40%);
   color: hsl(var(--hue2), 100%, 10%);
   border-color: hsl(var(--hue2), 100%, 10%);
@@ -146,7 +150,7 @@ section.portrait p, section.portrait blockquote {
 section.portrait img {
   border-width: calc(var(--cw)/50);
 }
-section.portrait a {
+section.portrait :global(a) {
   width: calc(var(--cw)/2.5);
   height: calc(var(--ch)/10);
   font-size: calc(var(--cw)/15);
@@ -165,7 +169,7 @@ section.landscape p, blockquote {
 section.landscape img {
   border-width: calc(var(--cw) * 0.005);
 }
-section.landscape a {
+section.landscape :global(a) {
   width: 15%;
   height: calc(var(--ch)/10);
   font-size: calc(var(--cw)/50);
@@ -332,7 +336,7 @@ header.landscape div{
 }
 /* TRANSITIONS ////////////////////////////////////// */
 @media (hover:hover) {
-  a {
+  .intro-page :global(a) {
     transition-property: outline-width, background-color, color, border-color, transform;
     transition-timing-function: ease-out;
     transition-duration: 0.5s;
@@ -340,19 +344,22 @@ header.landscape div{
     outline-style: solid;
     outline-width: 0;
   }
-  .intro-page.portrait a:hover, .intro-page.portrait a:focus-visible {
+  .intro-page.portrait :global(a:hover), 
+  .intro-page.portrait :global(a:focus-visible) {
     outline-width: var(--ch);
   }
-  .intro-page.landscape a:hover, .intro-page.landscape a:focus-visible {
+  .intro-page.landscape :global(a:hover),
+  .intro-page.landscape :global(a:focus-visible) {
     outline-width: var(--cw);
   }
-  .intro-page a:hover, .intro-page a:focus-visible {
+  .intro-page :global(a:hover),
+  .intro-page :global(a:focus-visible) {
     transform: scale(1.5);
     background-color: black;
     border-color: hsl(var(--hue2), 100%, 50%);
     color: hsl(var(--hue2), 100%, 50%);
   }
-  .section3 a:hover, .section3 a:focus-visible {
+  .section3 :global(a:hover), .section3 :global(a:focus-visible) {
     transform: scale(1.5) translateX(calc(var(--cw)/-50));
   }
 }
