@@ -29,10 +29,6 @@
 <!-- MARKUP /////////////////////////////////////////// -->
 <div class="contact-page">
   <svg id="svg2" viewBox="0 0 1600 900" >
-    <path d="M 0,0 Q4,450 0,900"  ></path>
-    <path d="M 0,0 Q16,450 0,900"  ></path>
-    <path d="M 0,0 Q36,450 0,900"  ></path>
-    <path d="M 0,0 Q64,450 0,900"  ></path>
     <path d="M 0,0 Q100,450 0,900"  ></path>
     <path d="M 0,0 Q144,450 0,900"  ></path>
     <path d="M 0,0 Q196,450 0,900"  ></path>
@@ -57,19 +53,8 @@
     <path d="M 0,0 Q2704,450 0,900"  ></path>
     <path d="M 0,0 Q2916,450 0,900"  ></path>
     <path d="M 0,0 Q3136,450 0,900"  ></path>
-    <path d="M 0,0 Q3364,450 0,900"  ></path>
-    <path d="M 0,0 Q3600,450 0,900"  ></path>
-    <path d="M 0,0 Q3844,450 0,900"  ></path>
-    <path d="M 0,0 Q4096,450 0,900"  ></path>
-    <path d="M 0,0 Q4356,450 0,900"  ></path>
-    <path d="M 0,0 Q4624,450 0,900"  ></path>
-    <path d="M 0,0 Q4900,450 0,900"  ></path>
-    <path d="M 0,0 Q5184,450 0,900"  ></path>
-    <path d="M 0,0 Q5476,450 0,900"  ></path>
-    <path d="M 0,0 Q5776,450 0,900"  ></path>
-    <path d="M 0,0 Q6084,450 0,900"  ></path>
   </svg>
-  <address class="center">
+  <address>
     <p>For questions or commisions,<br/> you can email me at blahblah@gmail.com</p>
     <a href="mailto:blahblah@gmail.com" class="center">
       <EnvelopeIcon />
@@ -89,16 +74,18 @@ svg {
   z-index: -1;
 }
 path {
-  fill: hsla(var(--hue1), 100%, 50%, 0.09);
+  fill: hsla(var(--hue1), 100%, 50%, 0.15);
   stroke-width: 10;
   stroke: hsla(var(--hue2), 100%, 50%, 1);
   stroke-dasharray: 10 10;
   stroke-linecap: round;
 }
 address {
+  width: 100%;
   height: 100%;
   flex-direction: column;
   color: hsl(var(--hue2), 100%, 80%);
+  display: flex;
 }
 p {
   line-height: 1.5;
@@ -111,12 +98,16 @@ a {
 @media screen and (orientation: portrait) {
 svg {
   transform-origin: 50% 50%;
-  transform: rotate(90deg) translateY(calc(var(--cw))) scale(1.3);
+  transform: rotate(90deg) translate(calc(var(--cw)), calc(var(--cw)/1.5)) scale(1.3);
   height: 100%;
 }
 address {
   padding: calc(var(--cw) * 0.05);
   gap: calc(var(--ch)/10);
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  padding-top: calc(var(--ch)/10);
 }
 p {
   font-size: calc(var(--cw)/14);
@@ -133,8 +124,16 @@ a :global(svg) {
 }
 /* LANDSCAPE ----------------------------------- */
 @media screen and (orientation: landscape) {
+.contact-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 address {
+  width: 100%;
   gap: calc(var(--ch)/10);
+  padding-left: calc(var(--cw)/20);
+  justify-content: center;
 }
 p {
   font-size: calc(var(--cw)/50);
