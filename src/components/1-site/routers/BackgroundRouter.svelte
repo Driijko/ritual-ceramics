@@ -24,6 +24,9 @@
       }} 
     />
   </div>
+{:else if $currentPage === "contact"}
+  <div class="background-container contact-background" class:exiting={$exiting}>
+  </div>
 {/if}
 
 <!-- STYLES ////////////////////////////////////////// -->
@@ -37,5 +40,8 @@
 }
 .exiting {
   animation: fadeOut 2s ease-out forwards;
+}
+.contact-background {
+  background-color: hsl(var(--hue2), 100%, 80%);
 }
 </style>
