@@ -3,16 +3,9 @@
   // IMPORTS -------------------------------------------
   import { layoutBreakpoint } 
   from "../../../../data/layoutBreakpointStore";
-  import { newPage } from "../../../../data/currentPageStore";
-  import { modals } from "../../../../data/modalsStore";
+  import PageLink from "../../../6-elements/interface/PageLink.svelte";
 
-  // EVENT HANDLERS --------------------------------------
-  function handleClick(pageName) {
-    newPage(pageName);
-    if ($layoutBreakpoint !== "large-desktop") {
-      modals.close("siteMenu");
-    }
-  }
+
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
@@ -21,32 +14,16 @@
 >
   <div class="background"></div>
   <li>
-    <a href="./introduction" 
-      on:click|preventDefault={()=> handleClick("introduction")}
-    >
-      Introduction
-    </a>
+    <PageLink pageName="introduction">Introduction</PageLink>
   </li>
   <li>
-    <a href="./shop" 
-      on:click|preventDefault={()=> handleClick("shop")}
-    >
-      Shop
-    </a>
+    <PageLink pageName="shop">Shop</PageLink>
   </li>
   <li>
-    <a href="./about" 
-      on:click|preventDefault={()=> handleClick("about")}
-    >
-      About
-    </a>
+    <PageLink pageName="about">About</PageLink>
   </li>
   <li>
-    <a href="./contact" 
-      on:click|preventDefault={()=> handleClick("contact")}
-    >
-      Contact
-    </a>
+    <PageLink pageName="contact">Contact</PageLink>
   </li>
 </ul>
 
@@ -78,13 +55,13 @@ ul.small-desktop {
   padding-left: calc(var(--iw)/100);
   gap: calc(var(--iw)/15);
 }
-ul.portrait a {
+ul.portrait :global(a) {
   font-size: calc(var(--iw)/13);
 }
 ul.small-desktop li {
   width: fit-content;
 }
-ul.small-desktop a {
+ul.small-desktop :global(a) {
   font-size: calc(var(--iw)/50);
 }
 li {
@@ -92,16 +69,16 @@ li {
 }
 /* TRANSITIONS //////////////////////////////////////// */
 @media (hover:hover) {
-  ul.small-desktop a {
+  ul.small-desktop :global(a) {
     transform-origin: 0% 50%;
   }
-  a {
+  ul :global(a) {
     transition-property: transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
     display: block;
   }
-  a:hover, a:focus-visible {
+  ul :global(a:hover), ul :global(a:focus-visible) {
     transform: scale(1.5);
     text-decoration: underline;
   }
