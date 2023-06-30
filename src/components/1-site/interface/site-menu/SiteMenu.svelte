@@ -198,10 +198,10 @@ header {
 }
 .site-menu.landscape :global(.site-menu-modal-closer-button) {
   position: absolute;
-  width: calc(var(--iw) * 0.057);
-  height: calc(var(--iw) * 0.057);
+  width: calc(var(--iw) * 0.063);
+  height: calc(var(--iw) * 0.063);
   top: 0%;
-  left: 94.3%;
+  left: 93.6%;
   padding: calc(var(--iw) * 0.01);
   border-width: calc(var(--iw)/200);
 }

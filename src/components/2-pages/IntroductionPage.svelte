@@ -12,6 +12,7 @@
   class:landscape={$viewportOrientation === "landscape"}
 >
   <SnapScroll axis="vertical">
+    <!-- HEADER ------------------------------ -->
     <header class:portrait={$viewportOrientation === "portrait"}
       class:landscape={$viewportOrientation === "landscape"}
     >
@@ -24,8 +25,32 @@
         <DownAngle />
       </div>
     </header>
-    <section>
-      Hello
+    <!-- SECTION 1 ----------------------------------- -->
+    <section class="section1"
+      class:portrait={$viewportOrientation === "portrait"}
+      class:landscape={$viewportOrientation === "landscape"}
+    >
+      <p>
+        Ritual Ceramics is a line of wheel thrown stoneware for everyday use. My pots are minimalist in form and expressive in surface. There are similarities across pots but no two are alike. It pleases me that few objects in my own kitchen match.
+      </p>
+      <p>
+        Each piece tells a story- how it came to be in my home or how it enhances my daily rituals with colour, texture, weight, line and form.
+      </p>
+      <img src="./images/pic7.jpg" alt="Cup and pitcher."/>
+    </section>
+    <section class="section2"
+      class:portrait={$viewportOrientation === "portrait"}
+      class:landscape={$viewportOrientation === "landscape"}
+    >
+      <p>
+        Browse the online shop for a variety of mugs, vases, pour-overs, tea pots, bowls and candle holders.
+      </p>
+      <a href="shop" class="center">Shop Now</a>
+      <div class="center">
+        <img src="./images/pic9.jpg" alt="Stack of cups." />
+        <img src="./images/pic8.jpg" alt="Collection of bowls." />
+        <img src="./images/pic10.jpg" alt="Vase with white flowers." />
+      </div>
     </section>
   </SnapScroll>
 </div>
@@ -33,11 +58,74 @@
 
 <!-- STYLES /////////////////////////////////// -->
 <style>
+/* GENERAL ///////////////////////////// */
 .intro-page.portrait {
   height: 92%;
 }
 .intro-page.landscape {
   height: 100%;
+}
+header, .section1 {
+  display: none !important;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section p {
+  background-color: hsl(var(--hue1), 100%, 70%);
+  border-color: hsl(var(--hue2), 100%, 10%);
+  border-style: solid;
+}
+section img {
+  border-color: hsl(var(--hue2), 100%, 10%);
+  border-style: solid;
+}
+section a {
+  background-color: hsl(var(--hue2), 100%, 40%);
+  color: hsl(var(--hue2), 100%, 10%);
+  border-color: hsl(var(--hue2), 100%, 10%);
+  border-style: solid;
+  font-weight: 400;
+}
+/* GENERAL PORTRAIT ----------------------------- */
+section.portrait {
+  flex-direction: column;
+  gap: calc(var(--ch) * 0.02);
+}
+section.portrait p {
+  padding: 5%;
+  border-width: calc(var(--cw)/50);
+  font-size: calc(var(--cw)/17);
+}
+section.portrait img {
+  border-width: calc(var(--cw)/50);
+}
+section.portrait a {
+  width: calc(var(--cw)/2.5);
+  height: calc(var(--ch)/10);
+  font-size: calc(var(--cw)/15);
+  border-width: calc(var(--cw)/100);
+}
+/* GENERAL LANDSCAPE ------------------------------- */
+section.landscape {
+  flex-direction: row;
+}
+section.landscape p {
+  font-size: calc(var(--cw)/60);
+  width: 35%;
+  padding: calc(var(--cw) * 0.04);
+  border-width: calc(var(--cw) * 0.005);
+}
+section.landscape img {
+  border-width: calc(var(--cw) * 0.005);
+}
+section.landscape a {
+  width: 15%;
+  height: calc(var(--ch)/10);
+  font-size: calc(var(--cw)/50);
+  border-width: calc(var(--cw)/200);
 }
 /* HEADER //////////////////////////////////////////////// */
 /* HEADER GENERAL ----------------------------------- */
@@ -72,7 +160,6 @@ header.portrait h1 {
 header.portrait p {
   font-size: calc(var(--cw)/15);
   padding: calc(var(--cw)/15);
-  margin-bottom: calc(var(--ch)/10);
   text-align: center;
 }
 header.portrait div {
@@ -106,13 +193,80 @@ header.landscape p {
     hsl(var(--hue1), 100%, 65%),
     hsl(var(--hue1), 100%, 65%)
   );
-  /* margin-bottom: calc(var(--ch) * 0.01) */
 }
 header.landscape div{
   width: 100%;
   height: calc(var(--ch) * 0.15);
   background-color: hsla(var(--hue2), 100%, 10%, 0.7);
-  /* border-radius: 50%; */
   padding-top: 1%;
+}
+/* SECTION 1 PORTRAIT ///////////////////////////////// */
+.section1.portrait img {
+  display: none;
+}
+/* SECTION 1 LANDSCAPE ----------------------- */
+.section1.landscape {
+  position: relative;
+  gap: calc(var(--cw)/5);
+}
+.section1.landscape img {
+  position: absolute;
+  height: 90%;
+  z-index: -1;
+}
+/* SECTION 2 GENERAL ///////////////////////////////// */
+.section2 {
+  position: relative;
+}
+.section2 div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* SECTION 2 PORTRAIT ----------------------- */
+.section2.portrait div img:nth-of-type(2) {
+  width: 85%;
+}
+.section2.portrait div img:nth-of-type(1),
+.section2.portrait div img:nth-of-type(3) {
+  display: none;
+}
+/* SECTION 3 LANDSCAPE ---------------------- */
+.section2.landscape {
+  gap: calc(var(--cw)/100);
+}
+.section2.landscape div {
+  gap: calc(var(--cw)/15);
+}
+.section2.landscape div img:nth-of-type(2) {
+  height: 80%;
+}
+.section2.landscape div img:nth-of-type(1),
+.section2.landscape div img:nth-of-type(3) {
+  height: 70%;
+}
+/* TRANSITIONS ////////////////////////////////////// */
+@media (hover:hover) {
+  a {
+    transition-property: outline-width, background-color, color, border-color, transform;
+    transition-timing-function: ease-out;
+    transition-duration: 0.5s;
+    outline-color: hsla(var(--hue1), 100%, 70%, 0.8);
+    outline-style: solid;
+    outline-width: 0;
+  }
+  .intro-page.portrait a:hover, .intro-page.portrait a:focus-visible {
+    outline-width: var(--ch);
+  }
+  .intro-page.landscape a:hover, .intro-page.landscape a:focus-visible {
+    outline-width: var(--cw);
+  }
+  .intro-page a:hover, .intro-page a:focus-visible {
+    transform: scale(1.5);
+    background-color: black;
+    border-color: hsl(var(--hue2), 100%, 50%);
+    color: hsl(var(--hue2), 100%, 50%);
+  }
 }
 </style>

@@ -7,3 +7,7 @@ back6: https://unsplash.com/photos/UD5drKd4H6w
 pic1-4: https://unsplash.com/photos/-YewKWD94Wo
 pic5: https://unsplash.com/photos/ImoKywFwi9o
 pic6: https://unsplash.com/photos/R0qthXq3jec
+pic7: https://unsplash.com/photos/85u5oGSBJ1s
+pic8: https://unsplash.com/photos/ypi0l7vP0Vw
+pic9: https://unsplash.com/photos/u_jt9A7FADk
+pic10: https://unsplash.com/photos/1RM_U0rNdFs
