@@ -4,6 +4,7 @@
   import SnapScroll from "../4-layouts/SnapScroll.svelte";
   import { viewportOrientation } from "../../data/viewportOrientationStore";
   import DownAngle from "../6-elements/icons/arrows/DownAngle.svelte";
+  import EnvelopeIcon from "../6-elements/icons/interface/EnvelopeIcon.svelte";
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
@@ -16,7 +17,7 @@
     <header class:portrait={$viewportOrientation === "portrait"}
       class:landscape={$viewportOrientation === "landscape"}
     >
-      <h1>Ritual Ceramics</h1>
+      <h1>Ritual Ceramics: Introduction</h1>
       <img src="./images/pic6.jpg" alt="Pottery." />
       <p>
         Imagine clay as a site,<br/> a place to be and exist in. 
@@ -38,6 +39,7 @@
       </p>
       <img src="./images/pic7.jpg" alt="Cup and pitcher."/>
     </section>
+    <!-- SECTION 2 -------------------------- -->
     <section class="section2"
       class:portrait={$viewportOrientation === "portrait"}
       class:landscape={$viewportOrientation === "landscape"}
@@ -52,6 +54,43 @@
         <img src="./images/pic10.jpg" alt="Vase with white flowers." />
       </div>
     </section>
+    <!-- SECTION 3------------------------------ -->
+    <section class="section3"
+      class:portrait={$viewportOrientation === "portrait"}
+      class:landscape={$viewportOrientation === "landscape"}
+    >
+      <p>
+        Through ceramic materials and processes, performance, video, and installation, I am interested in blurring notions of self and other, subject and object, the human and non-human. 
+      </p>
+      <img src="./images/pic11.jpg" alt="Potter working with clay at a potter's wheel." />
+      <a href="about" class="center">Learn More</a>
+    </section>
+    <!-- SECTION 4 -------------------------------- -->
+    <section class="section4"
+      class:portrait={$viewportOrientation === "portrait"}
+      class:landscape={$viewportOrientation === "landscape"}
+    >
+      <p>
+        You can email me blahblah@email.com for questions or commisions.
+      </p>
+      <a href="mailto:blahblah@email.com" class="center">
+        <EnvelopeIcon />
+      </a>
+      <img src="./images/pic12.jpg" alt="Artist at desk." />
+    </section>
+    <!-- SECTION 5 -------------------------------- -->
+    <section class="section5"
+      class:portrait={$viewportOrientation === "portrait"}
+      class:landscape={$viewportOrientation === "landscape"}
+    >
+      <blockquote>
+        “Forget your perfect offering<br/>
+        There is a crack, a crack in everything<br/>
+        That's how the light gets in”<br/>
+        <span>- Leonard Cohen</span>
+      </blockquote>
+      <img src="./images/pic13.jpg" alt="Sculpture." />
+    </section>
   </SnapScroll>
 </div>
 
@@ -59,21 +98,25 @@
 <!-- STYLES /////////////////////////////////// -->
 <style>
 /* GENERAL ///////////////////////////// */
+.intro-page {
+  animation: fadeIn 2s 3s ease-out forwards;
+  opacity: 0;
+}
 .intro-page.portrait {
   height: 92%;
 }
 .intro-page.landscape {
   height: 100%;
 }
-header, .section1 {
-  display: none !important;
+p, blockquote {
+  line-height: 1.5;
 }
 section {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-section p {
+section p, section blockquote {
   background-color: hsl(var(--hue1), 100%, 70%);
   border-color: hsl(var(--hue2), 100%, 10%);
   border-style: solid;
@@ -94,10 +137,11 @@ section.portrait {
   flex-direction: column;
   gap: calc(var(--ch) * 0.02);
 }
-section.portrait p {
+section.portrait p, section.portrait blockquote {
   padding: 5%;
   border-width: calc(var(--cw)/50);
   font-size: calc(var(--cw)/17);
+  width: 100%;
 }
 section.portrait img {
   border-width: calc(var(--cw)/50);
@@ -112,7 +156,7 @@ section.portrait a {
 section.landscape {
   flex-direction: row;
 }
-section.landscape p {
+section.landscape p, blockquote {
   font-size: calc(var(--cw)/60);
   width: 35%;
   padding: calc(var(--cw) * 0.04);
@@ -135,11 +179,12 @@ header {
   justify-content: center;
   align-items: center;
 }
-h1, p {
+h1 {
   width: 100%;
+  line-height: 1.3;
 }
-p {
-  line-height: 1.5;
+header p {
+  width: 100%;
 }
 header img {
   width: 100%;
@@ -232,7 +277,7 @@ header.landscape div{
 .section2.portrait div img:nth-of-type(3) {
   display: none;
 }
-/* SECTION 3 LANDSCAPE ---------------------- */
+/* SECTION 2 LANDSCAPE ---------------------- */
 .section2.landscape {
   gap: calc(var(--cw)/100);
 }
@@ -245,6 +290,45 @@ header.landscape div{
 .section2.landscape div img:nth-of-type(1),
 .section2.landscape div img:nth-of-type(3) {
   height: 70%;
+}
+/* SECTION 3 PORTRAIT ////////////////////////// */
+.section3.portrait img {
+  height: calc(var(--ch) * 0.4);
+}
+/* SECTION 3 LANDSCAPE -------------------------- */
+.section3.landscape {
+  gap: calc(var(--cw)/30);
+}
+.section3.landscape img {
+  height: calc(var(--ch) * 0.7);
+}
+/* SECTION 4 PORTRAIT /////////////////////// */
+.section4.portrait :global(svg) {
+  height: 80%;
+}
+.section4.portrait img {
+  height: calc(var(--ch) * 0.4);
+}
+/* SECTION 4 LANDSCAPE ----------------------- */
+.section4.landscape {
+  gap: calc(var(--cw)/20);
+}
+.section4.landscape :global(svg) {
+  height: 80%;
+}
+.section4.landscape img {
+  height: calc(var(--ch) * 0.4);
+}
+/* SECTION 5 PORTRAIT ///////////////////////////////// */
+.section5.portrait img {
+  width: 100%;
+}
+/* SECTION 5 LANDSCAPE ---------------------------------- */
+.section5.landscape {
+  gap: calc(var(--cw)/20);
+}
+.section5.landscape img {
+  width: 50%;
 }
 /* TRANSITIONS ////////////////////////////////////// */
 @media (hover:hover) {
@@ -267,6 +351,9 @@ header.landscape div{
     background-color: black;
     border-color: hsl(var(--hue2), 100%, 50%);
     color: hsl(var(--hue2), 100%, 50%);
+  }
+  .section3 a:hover, .section3 a:focus-visible {
+    transform: scale(1.5) translateX(calc(var(--cw)/-50));
   }
 }
 </style>

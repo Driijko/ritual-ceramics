@@ -11,3 +11,6 @@ pic7: https://unsplash.com/photos/85u5oGSBJ1s
 pic8: https://unsplash.com/photos/ypi0l7vP0Vw
 pic9: https://unsplash.com/photos/u_jt9A7FADk
 pic10: https://unsplash.com/photos/1RM_U0rNdFs
+pic11: https://unsplash.com/photos/7ZK_CuHroq4
+pic12: https://unsplash.com/photos/OxU08SFhPbI
+pic13: https://unsplash.com/photos/abwJamFN0qs

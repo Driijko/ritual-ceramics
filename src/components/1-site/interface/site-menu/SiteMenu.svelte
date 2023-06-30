@@ -154,6 +154,7 @@ header {
 .site-menu.landscape header {
   align-items: center;
   gap: calc(var(--iw)/50);
+  height: calc(var(--ih) * 0.1);
 }
 .site-menu.landscape h1 {
   font-size: calc(var(--iw)/30);
@@ -199,7 +200,7 @@ header {
 .site-menu.landscape :global(.site-menu-modal-closer-button) {
   position: absolute;
   width: calc(var(--iw) * 0.063);
-  height: calc(var(--iw) * 0.063);
+  height: calc(var(--ih) * 0.1);
   top: 0%;
   left: 93.6%;
   padding: calc(var(--iw) * 0.01);
