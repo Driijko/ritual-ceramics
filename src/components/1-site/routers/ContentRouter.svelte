@@ -4,7 +4,7 @@
   import SplashPage from "../../2-pages/SplashPage.svelte";
   import IntroductionPage from "../../2-pages/IntroductionPage.svelte";
   import ContactPage from "../../2-pages/ContactPage.svelte";
-  import AboutPage from "../../2-pages/AboutPage.svelte";
+  import AboutPage from "../../2-pages/about/AboutPage.svelte";
 
 </script>
 

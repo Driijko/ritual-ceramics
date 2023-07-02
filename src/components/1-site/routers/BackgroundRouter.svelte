@@ -24,6 +24,15 @@
       }} 
     />
   </div>
+{:else if $currentPage === "about"}
+  <div class="background-container" class:exiting={$exiting}>
+    <FlippableBackground 
+      src={{
+        portrait: "./backgrounds/back4-v.jpg",
+        landscape: "./backgrounds/back4-h.jpg"
+      }} 
+    />
+  </div>
 {:else if $currentPage === "contact"}
   <div class="background-container contact-background" class:exiting={$exiting}>
   </div>
