@@ -5,8 +5,10 @@
   import { onMount } from "svelte";
   import EnvelopeIcon 
   from "../6-elements/icons/interface/EnvelopeIcon.svelte";
+  import { setPageExit } from "../../data/currentPageStore";
 
   // ANIMATION ---------------------------------
+  // PAGE ENTRANCE ----------------
   onMount(()=> {
     const tl = gsap.timeline();
     tl.from("#svg2 path", {
@@ -24,6 +26,21 @@
       duration: 50,
     },0);
   });
+
+  // PAGE EXIT ----------------------
+  function pageExit() {
+    const tl = gsap.timeline();
+    tl.to("#svg2 path", {
+      stagger: {
+        each: 0.05,
+        from: "center",
+      },
+      duration: 2.2,
+      ease: "power1.out",
+      attr: {d: "M0,0Q0,450,0,900"},
+    });
+  }
+  setPageExit(pageExit, 3000);
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
@@ -53,6 +70,7 @@
     <path d="M 0,0 Q2704,450 0,900"  ></path>
     <path d="M 0,0 Q2916,450 0,900"  ></path>
     <path d="M 0,0 Q3136,450 0,900"  ></path>
+    <line x1="0" y1="0" x2="0" y2="900" />
   </svg>
   <address>
     <p>For questions or commisions,<br/> you can email me at blahblah@gmail.com</p>
@@ -146,6 +164,10 @@ a {
 }
 a :global(svg) {
   height: 80%;
+}
+line {
+  stroke: hsl(var(--hue2), 100%, 50%);
+  stroke-width: 20;
 }
 }
 /* TRANSITIONS GENERAL ////////////////////////////// */
