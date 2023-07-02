@@ -19,7 +19,7 @@
       opacity: 0,
       delay: 4,
       duration: 3
-    })
+    });
   });
 </script>
 <!-- MARKUP //////////////////////////////////////// -->
@@ -43,7 +43,6 @@
 <style>
 header {
   position: relative;
-  border: 4px solid green;
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -53,7 +52,6 @@ header {
   z-index: -1;
   width: 100%;
   height: 100%;
-  border: 1px solid blue;
 }
 circle {
   fill: hsl(var(--hue2), 100%, 70%);
@@ -67,7 +65,6 @@ h1 {
 .scroll-indicator-container {
   position: absolute;
   top: 55%;
-  /* border: 4px solid blue; */
   width: 100%;
   height: calc(var(--ch)/12);
 }
