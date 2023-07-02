@@ -42,7 +42,7 @@
     <circle cx="400" cy="550" r="200" opacity="0.8" />
     <circle cx="1200" cy="350" r="200" opacity="0.8" />
     <circle cx="1200" cy="550" r="200" opacity="0.8" />
-    <circle cx="800" cy="450" r="400" opacity="0.8" />
+    <circle cx="800" cy="450" r="400" opacity="0.9" />
   </svg>
   <h1>About Ritual Ceramics</h1>
   <div class="scroll-indicator-container center">
