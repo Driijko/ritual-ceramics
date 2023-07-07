@@ -3,15 +3,21 @@
   // IMPORTS ----------------------------------------
   import { viewportOrientation }
   from "../../../data/viewportOrientationStore";
+  import { exiting, setPageExit } from "../../../data/currentPageStore";
   import { layoutBreakpoint } from "../../../data/layoutBreakpointStore";
   import AboutHeaderPortrait from "./header/AboutHeaderPortrait.svelte";
   import AboutHeaderLandscape from "./header/AboutHeaderLandscape.svelte";
   import SnapScroll from "../../4-layouts/SnapScroll.svelte";
+
+  // PAGE EXIT -----------------------------------
+  setPageExit(()=> {}, 2000);
+
 </script>
 
 <!-- MARKUP //////////////////////////////////////////// -->
 <div class="about-page" 
   class:large-desktop={$layoutBreakpoint === "large-desktop"}
+  class:exiting={$exiting}
 >
   <SnapScroll axis="vertical">
     <!-- HEADER --------------------------- -->
@@ -48,6 +54,9 @@
 <!-- STYLES /////////////////////////////////////////// -->
 <style>
 /* GENERAL /////////////////////////////////////////////// */
+.about-page.exiting {
+  animation: fadeOut 2s ease-out forwards;
+}
 .about-page.large-desktop section {
   background-color: hsla(var(--hue2), 100%, 10%, 0.5);
 }
@@ -58,9 +67,6 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.about-page :global(header), .section1, .section2 {
-  /* display: none; */
 }
 section h2 {
   font-weight: 400;
