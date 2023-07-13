@@ -4,7 +4,7 @@
   import { layoutBreakpoint } 
   from "../../../../data/layoutBreakpointStore";
   import PageLink from "../../../6-elements/interface/PageLink.svelte";
-
+  import { currentPage } from "../../../../data/currentPageStore";
 
 </script>
 
@@ -13,16 +13,16 @@
   class:portrait={$layoutBreakpoint !== "small-desktop"}
 >
   <div class="background"></div>
-  <li>
+  <li class:current={$currentPage === "introduction"}>
     <PageLink pageName="introduction">Introduction</PageLink>
   </li>
-  <li>
+  <li class:current={$currentPage === "shop"}>
     <PageLink pageName="shop">Shop</PageLink>
   </li>
-  <li>
+  <li class:current={$currentPage === "about"}>
     <PageLink pageName="about">About</PageLink>
   </li>
-  <li>
+  <li class:current={$currentPage === "contact"}>
     <PageLink pageName="contact">Contact</PageLink>
   </li>
 </ul>
@@ -66,6 +66,10 @@ ul.small-desktop :global(a) {
 }
 li {
   z-index: 2;
+}
+li.current :global(a) {
+  transform: scale(1.5);
+  text-decoration: underline;
 }
 /* TRANSITIONS //////////////////////////////////////// */
 @media (hover:hover) {
