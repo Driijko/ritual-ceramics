@@ -2,15 +2,63 @@
 <script>
   // IMPORTS ------------------------------------------
   import products from "../../data/products";
+  import Price from "../6-elements/Price.svelte";
+  import { layoutBreakpoint } from "../../data/layoutBreakpointStore";
 
   // PRODUCTS ------------------------------------------
   let productsDisplay = products;
 
   // SORT FUNCTIONS ---------------------------------
   function alphabeticalA() {
-    productsDisplay = products.sort((item1, item2) => {
-      return item1.name > item2.name
-    });
+    function compare(a,b) {
+      if (a.name > b.name) {
+        return 1;
+      } else if (a.name === b.name) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+    productsDisplay.sort(compare);
+  };
+
+  function alphabeticalZ() {
+    function compare(a,b) {
+      if (a.name < b.name) {
+        return 1;
+      } else if (a.name === b.name) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+    productsDisplay.sort(compare);
+  };
+
+  function priceLowToHigh() {
+    function compare(a, b) {
+      if (a.price > b.price) {
+        return 1;
+      } else if (a.price === b.price) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+    productsDisplay.sort(compare);
+  };
+
+  function priceHighToLow() {
+    function compare(a, b) {
+      if (a.price < b.price) {
+        return 1;
+      } else if (a.price === b.price) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+    productsDisplay.sort(compare);
   }
 
   // FILTER FUNCTIONS --------------------------------
@@ -26,17 +74,18 @@
     });
   }
 
-  filterBySale();
-  filterByCategory("mug");
+  priceHighToLow();
+  // filterBySale();
+  // filterByCategory("mug");
 
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
-<div class="shop-page">
-  <h2>Ritual Ceramics: Online Shop</h2>
+<div class="shop-page" class:large-desktop={$layoutBreakpoint === "large-desktop"}>
+  <h2>Ritual Ceramics:<br class="portrait-only"/> Online Shop</h2>
   <div class="item-list">
     {#if productsDisplay.length === 0}
-      <p class="no-match">Sorry, no items match these filters.</p>
+      <p class="no-match center">Sorry, no items match these filters.</p>
     {:else}
       {#each productsDisplay as item}
           <div class="item">
@@ -46,10 +95,10 @@
                 <h3>{item.name}</h3>
                 <p>
                   {#if item.sale}
-                    <span class="og-price">${item.price}</span>
-                    <span>${item["sale-price"]}</span>
+                    <Price price={item["original-price"]} className="og-price" />
+                    <Price price={item.price} />
                   {:else}
-                    ${item.price}
+                    <Price price={item.price} />
                   {/if}
                 </p>
               </div>
@@ -71,6 +120,9 @@
 .shop-page::-webkit-scrollbar {
   display: none;
 }
+.shop-page.large-desktop {
+  background-color: hsla(var(--hue2), 100%, 10%, 0.3);
+}
 .item-list {
   width: 100%;
   display: flex;
@@ -78,35 +130,45 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  gap: 10px;
-  min-height: calc(var(--vph) * 0.72);
+  gap: 20px;
 }
 h2 {
-  background-color: hsl(var(--hue1), 100%, 50%);
+  background-color: hsla(var(--hue2), 100%, 15%, 0.95);
   width: 100%;
   align-self: flex-start;
   height: calc(var(--ch) * 0.2);
   z-index: 1;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  border-style: solid;
+  color: hsl(var(--hue1), 100%, 85%);
+  border-color: hsl(var(--hue1), 100%, 85%);
 }
 .no-match {
   width: 100%;
-  border: 4px solid blue;
+  border-color: hsl(var(--hue2), 100%, 10%);
+  border-style: solid;
+  background-color: hsla(var(--hue2), 100%, 70%, 0.9);
 }
 .item {
   width: 300px;
   height: 400px;
   position: relative;
-  border: 4px solid black;
   overflow: hidden;
+  border-style: solid;
+  border-color: hsl(var(--hue2), 100%, 0%);
+  border-width: 4px;
 }
 a {
   width: 100%;
   display: block;
   height: 100%;
+  background-color: hsla(var(--hue2), 100%, 70%, 0.1);
 }
 img {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   object-fit: cover;
   height: 100%;
@@ -125,16 +187,46 @@ img {
 }
 p {
   display: flex;
-  gap: calc(var(--cw)/30);
+  gap: 20px;
 }
-.og-price {
+p :global(.og-price) {
   text-decoration: line-through;
 }
 /* PORTRAIT ////////////////////////////////////////// */
 @media screen and (orientation: portrait) {
+h2 {
+  font-size: calc(var(--cw)/13);
+  border-bottom-width: calc(var(--cw)/50);
+  line-height: 1.3;
+  text-align: center;
+  justify-content: center;
+}
+.item-list {
+  padding-top: calc(var(--ch)/10);
+  min-height: calc(var(--vph) * 0.72);
+}
 .shop-page {
   padding-bottom: calc(var(--vph) * 0.3);
 }
+.no-match {
+  border-width: calc(var(--cw)/100);
+  height: calc(var(--ch)/2);
+  font-size: calc(var(--cw)/15);
+}
+}
+/* LANDSCAPE ///////////////////////////////////////////////// */
+@media screen and (orientation: landscape) {
+  .item-list {
+    min-height: calc(var(--vph) * 0.8);
+  }
+  .shop-page.large-desktop .item-list {
+    min-height: calc(var(--ch) * 0.8);
+  }
+  h2 {
+    font-size: calc(var(--cw)/40);
+    padding-left: calc(var(--cw)/100);
+    border-bottom-width: calc(var(--ch)/100);
+  }
 }
 /* TRANSITIONS ////////////////////////////////////////// */
 @media (hover:hover) {
