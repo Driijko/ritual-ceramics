@@ -10,7 +10,7 @@
   import shift from "../../../scripts/transitions/shift";
   import { linear } from "svelte/easing";
   import SortModalOpenerButton 
-  from "../../6-elements/interface/modal/SortModalOpenerButton.svelte";
+  from "../../6-elements/interface/modal/SortModalOpenerCloserButton.svelte";
   import FilterModalOpenerButton 
   from "../../6-elements/interface/modal/FilterModalOpenerButton.svelte";
 </script>

@@ -1,4 +1,7 @@
-const products = [
+import { writable, get } from "svelte/store";
+
+// PRODUCTS //////////////////////////////////////
+export const products = [
 {
   id: 1,
   name: "vase",
@@ -38,4 +41,58 @@ const products = [
 },
 ];
 
-export default products;
+// PRODUCTS DISPLAY //////////////////////////////////////
+export const productsDisplay = writable(products);
+
+// SORT FUNCTIONS /////////////////////////////////////////
+export function productsSortAlphabeticalA() {
+  function compare(a,b) {
+    if (a.name > b.name) {
+      return 1;
+    } else if (a.name === b.name) {
+      return 0;
+    } else {
+      return -1;
+    }
+  };
+  productsDisplay.set(get(productsDisplay).sort(compare));
+};
+
+export function productsSortAlphabeticalZ() {
+  function compare(a,b) {
+    if (a.name < b.name) {
+      return 1;
+    } else if (a.name === b.name) {
+      return 0;
+    } else {
+      return -1;
+    }
+  };
+  productsDisplay.set(get(productsDisplay).sort(compare));
+};
+
+export function productsSortPriceLowToHigh() {
+  function compare(a, b) {
+    if (a.price > b.price) {
+      return 1;
+    } else if (a.price === b.price) {
+      return 0;
+    } else {
+      return -1;
+    }
+  };
+  productsDisplay.set(get(productsDisplay).sort(compare));
+};
+
+export function productsSortPriceHighToLow() {
+  function compare(a, b) {
+    if (a.price < b.price) {
+      return 1;
+    } else if (a.price === b.price) {
+      return 0;
+    } else {
+      return -1;
+    }
+  };
+  productsDisplay.set(get(productsDisplay).sort(compare));
+};

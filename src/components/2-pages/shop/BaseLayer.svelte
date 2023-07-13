@@ -1,93 +1,20 @@
-<!-- SCRIPTS ///////////////////////////////////////////// -->
+<!-- SCRIPTS /////////////////////////////////////// -->
 <script>
-  // IMPORTS ------------------------------------------
-  import products from "../../data/products";
-  import Price from "../6-elements/Price.svelte";
-  import { layoutBreakpoint } from "../../data/layoutBreakpointStore";
-
-  // PRODUCTS ------------------------------------------
-  let productsDisplay = products;
-
-  // SORT FUNCTIONS ---------------------------------
-  function alphabeticalA() {
-    function compare(a,b) {
-      if (a.name > b.name) {
-        return 1;
-      } else if (a.name === b.name) {
-        return 0;
-      } else {
-        return -1;
-      }
-    };
-    productsDisplay.sort(compare);
-  };
-
-  function alphabeticalZ() {
-    function compare(a,b) {
-      if (a.name < b.name) {
-        return 1;
-      } else if (a.name === b.name) {
-        return 0;
-      } else {
-        return -1;
-      }
-    };
-    productsDisplay.sort(compare);
-  };
-
-  function priceLowToHigh() {
-    function compare(a, b) {
-      if (a.price > b.price) {
-        return 1;
-      } else if (a.price === b.price) {
-        return 0;
-      } else {
-        return -1;
-      }
-    };
-    productsDisplay.sort(compare);
-  };
-
-  function priceHighToLow() {
-    function compare(a, b) {
-      if (a.price < b.price) {
-        return 1;
-      } else if (a.price === b.price) {
-        return 0;
-      } else {
-        return -1;
-      }
-    };
-    productsDisplay.sort(compare);
-  }
-
-  // FILTER FUNCTIONS --------------------------------
-  function filterByCategory(category) {
-    productsDisplay = productsDisplay.filter(item => {
-      return item.category === category;
-    });
-  };
-
-  function filterBySale() {
-    productsDisplay = productsDisplay.filter(item => {
-      return item.sale;
-    });
-  }
-
-  priceHighToLow();
-  // filterBySale();
-  // filterByCategory("mug");
-
+  // IMPORTS --------------------------------------
+  import Price from "../../6-elements/Price.svelte";
+  import { productsDisplay } from "../../../data/products";
+  import { layoutBreakpoint } from "../../../data/layoutBreakpointStore";
+  
 </script>
-
-<!-- MARKUP ///////////////////////////////////////////// -->
-<div class="shop-page" class:large-desktop={$layoutBreakpoint === "large-desktop"}>
+<div class="shop-page-base-layer"
+  class:large-desktop={$layoutBreakpoint === "large-desktop"}
+>
   <h2>Ritual Ceramics:<br class="portrait-only"/> Online Shop</h2>
   <div class="item-list">
-    {#if productsDisplay.length === 0}
+    {#if $productsDisplay.length === 0}
       <p class="no-match center">Sorry, no items match these filters.</p>
     {:else}
-      {#each productsDisplay as item}
+      {#each $productsDisplay as item (item.id)} 
           <div class="item">
             <a href={item.name}>
               <img src={item.pic} alt={item.description} />
@@ -109,19 +36,16 @@
   </div>
 </div>
 
-<!-- STYLES ///////////////////////////////////////////// -->
+<!-- STYLES //////////////////////////////////////////////// -->
 <style>
-/* GENERAL //////////////////////////////////////////// */
-.shop-page {
-  height: var(--vph);
+.shop-page-base-layer {
   overflow-y: scroll;
-  scrollbar-width: none;  
+  scrollbar-width: none; 
+  width: 100%;
+  height: 100%;
 }
-.shop-page::-webkit-scrollbar {
+.shop-page-base-layer::-webkit-scrollbar {
   display: none;
-}
-.shop-page.large-desktop {
-  background-color: hsla(var(--hue2), 100%, 10%, 0.3);
 }
 .item-list {
   width: 100%;
@@ -205,7 +129,7 @@ h2 {
   padding-top: calc(var(--ch)/10);
   min-height: calc(var(--vph) * 0.72);
 }
-.shop-page {
+.shop-page-base-layer {
   padding-bottom: calc(var(--vph) * 0.3);
 }
 .no-match {
@@ -219,7 +143,7 @@ h2 {
   .item-list {
     min-height: calc(var(--vph) * 0.8);
   }
-  .shop-page.large-desktop .item-list {
+  .shop-page-base-layer.large-desktop .item-list {
     min-height: calc(var(--ch) * 0.8);
   }
   h2 {

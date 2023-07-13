@@ -8,7 +8,7 @@
 
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="sort-modal-opener-button" 
-  on:click={()=>modals.open("sort")}
+  on:click={()=>modals.toggle("sort")}
 >
   <SortIcon />
 </button>
