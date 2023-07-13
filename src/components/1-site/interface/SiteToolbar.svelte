@@ -9,6 +9,10 @@
   import InstagramIcon from "../../6-elements/icons/InstagramIcon.svelte";
   import shift from "../../../scripts/transitions/shift";
   import { linear } from "svelte/easing";
+  import SortModalOpenerButton 
+  from "../../6-elements/interface/modal/SortModalOpenerButton.svelte";
+  import FilterModalOpenerButton 
+  from "../../6-elements/interface/modal/FilterModalOpenerButton.svelte";
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
@@ -24,10 +28,15 @@
     class:desktop={$layoutBreakpoint === "small-desktop"}
     inert={$siteMenuModal && ($layoutBreakpoint !== "large-desktop")}
   >
-    <a href="https://instagram.com/ktalselbee?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="center">
-      <InstagramIcon />
-    </a>
-    {#if $layoutBreakpoint !== "large-desktop"}
+    {#if $currentPage === "shop"}
+      <SortModalOpenerButton />
+      <FilterModalOpenerButton />
+    {:else}
+      <a href="https://instagram.com/ktalselbee?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="center">
+        <InstagramIcon />
+      </a>
+    {/if}
+    {#if $layoutBreakpoint !== "large-desktop" || $currentPage === "shop"}
       <SiteMenuModalOpenerButton />
     {/if}
   </div>
@@ -43,7 +52,7 @@
 .site-toolbar {
   color: white;
 }
-a :global(svg) {
+a :global(svg), .site-toolbar :global(button svg) {
   height: 100%;
 }
 /* MOBILE ----------------------------- */
@@ -54,7 +63,7 @@ a :global(svg) {
   top: 92%;
   justify-content: center;
   align-items: center;
-  gap: calc(var(--iw)/30);
+  gap: calc(var(--iw)/10);
 }
 .site-toolbar.mobile :global(button) {
   width: 15%;
