@@ -9,6 +9,7 @@
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="filter-modal-opener-button" 
   on:click={()=>modals.open("filter")}
+  title="filter products"
 >
   <FilterIcon />
 </button>

@@ -9,6 +9,7 @@
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="site-menu-modal-closer-button" 
   on:click={()=>modals.close("siteMenu")}
+  title="close menu"
 >
   <XIcon />
 </button>
