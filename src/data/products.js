@@ -43,56 +43,62 @@ export const products = [
 
 // PRODUCTS DISPLAY //////////////////////////////////////
 export const productsDisplay = writable(products);
+export const sortedProducts = writable(products);
 
 // SORT FUNCTIONS /////////////////////////////////////////
-export function productsSortAlphabeticalA() {
-  function compare(a,b) {
-    if (a.name > b.name) {
-      return 1;
-    } else if (a.name === b.name) {
-      return 0;
-    } else {
-      return -1;
+export function productsSort(sortBy) {
+  let compare;
+  if (sortBy === "az") {
+    compare = function(a, b) {
+      if (a.name > b.name) {
+        return 1;
+      } else if (a.name === b.name) {
+        return 0;
+      } else {
+        return -1;
+      }
     }
-  };
-  productsDisplay.set(get(productsDisplay).sort(compare));
+  }
+  else if (sortBy === "za") {
+    compare = function(a,b) {
+      if (a.name < b.name) {
+        return 1;
+      } else if (a.name === b.name) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+  }
+  else if (sortBy === "low") {
+    compare = function(a, b) {
+      if (a.price > b.price) {
+        return 1;
+      } else if (a.price === b.price) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+  }
+  else if (sortBy === "high") {
+    compare = function(a, b) {
+      if (a.price < b.price) {
+        return 1;
+      } else if (a.price === b.price) {
+        return 0;
+      } else {
+        return -1;
+      }
+    };
+  }
+  sortedProducts.set(get(sortedProducts).sort(compare));
 };
 
-export function productsSortAlphabeticalZ() {
-  function compare(a,b) {
-    if (a.name < b.name) {
-      return 1;
-    } else if (a.name === b.name) {
-      return 0;
-    } else {
-      return -1;
-    }
-  };
-  productsDisplay.set(get(productsDisplay).sort(compare));
-};
-
-export function productsSortPriceLowToHigh() {
-  function compare(a, b) {
-    if (a.price > b.price) {
-      return 1;
-    } else if (a.price === b.price) {
-      return 0;
-    } else {
-      return -1;
-    }
-  };
-  productsDisplay.set(get(productsDisplay).sort(compare));
-};
-
-export function productsSortPriceHighToLow() {
-  function compare(a, b) {
-    if (a.price < b.price) {
-      return 1;
-    } else if (a.price === b.price) {
-      return 0;
-    } else {
-      return -1;
-    }
-  };
-  productsDisplay.set(get(productsDisplay).sort(compare));
-};
+// FILTER FUNCTION ///////////////////////////////////
+// export function productsFilter(categories) {
+//   const temp = [];
+//   products.forEach(product => {
+//     if
+//   });
+// }

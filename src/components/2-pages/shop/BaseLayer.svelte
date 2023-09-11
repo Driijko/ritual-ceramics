@@ -2,7 +2,7 @@
 <script>
   // IMPORTS --------------------------------------
   import Price from "../../6-elements/Price.svelte";
-  import { productsDisplay } from "../../../data/products";
+  import { productsDisplay, sortedProducts } from "../../../data/products";
   import { layoutBreakpoint } from "../../../data/layoutBreakpointStore";
   
 </script>
@@ -14,7 +14,7 @@
     {#if $productsDisplay.length === 0}
       <p class="no-match center">Sorry, no items match these filters.</p>
     {:else}
-      {#each $productsDisplay as item (item.id)} 
+      {#each $sortedProducts as item (item.id)} 
           <div class="item">
             <a href={item.name}>
               <img src={item.pic} alt={item.description} />

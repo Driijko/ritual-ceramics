@@ -2,13 +2,11 @@
 <script>
   // IMPORTS --------------------------------
   import { modals, sortModal } from "../../../data/modalsStore";
-  import { productsSortAlphabeticalA, productsSortAlphabeticalZ,
-  productsSortPriceLowToHigh, productsSortPriceHighToLow } 
-  from "../../../data/products";
+  import { productsSort } from "../../../data/products";
 
   // EVENT HANDLERS ------------------------------------
-  function handleClick(sortFunction) {
-    sortFunction();
+  function handleClick(sortBy) {
+    productsSort(sortBy);
     modals.close("sort");
   };
 
@@ -20,22 +18,22 @@
     <h3>Sort Products</h3>
     <menu>
       <button type="button" 
-        on:click={()=> handleClick(productsSortAlphabeticalA)}
+        on:click={()=> handleClick("az")}
       >
         A - Z
       </button>
       <button type="button" 
-        on:click={()=> handleClick(productsSortAlphabeticalZ)}
+        on:click={()=> handleClick("za")}
       >
         Z - A
       </button>
       <button type="button" 
-        on:click={()=> handleClick(productsSortPriceLowToHigh)}
+        on:click={()=> handleClick("low")}
       >
         Price: low to high
       </button>
       <button type="button" 
-        on:click={()=> handleClick(productsSortPriceHighToLow)}
+        on:click={()=> handleClick("high")}
       >
         Price: high to low
       </button>
