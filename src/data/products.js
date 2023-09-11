@@ -44,6 +44,7 @@ export const products = [
 // PRODUCTS DISPLAY //////////////////////////////////////
 export const productsDisplay = writable(products);
 export const sortedProducts = writable(products);
+export const filteredProducts = writable(products);
 
 // SORT FUNCTIONS /////////////////////////////////////////
 export function productsSort(sortBy) {

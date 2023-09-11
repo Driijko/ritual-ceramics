@@ -4,6 +4,7 @@
   import { layoutBreakpoint } from "../../../data/layoutBreakpointStore";
   import BaseLayer from "./BaseLayer.svelte";
   import SortModal from "./SortModal.svelte";
+  import FilterModal from "./FilterModal.svelte";
 
   // FILTER FUNCTIONS --------------------------------
   // function filterByCategory(category) {
@@ -24,6 +25,7 @@
 <div class="shop-page" class:large-desktop={$layoutBreakpoint === "large-desktop"}>
   <BaseLayer  />
   <SortModal />
+  <FilterModal />
 </div>
 
 <!-- STYLES ///////////////////////////////////////////// -->
